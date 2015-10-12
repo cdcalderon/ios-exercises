@@ -11,23 +11,25 @@
 @implementation StarTrekArrays
 
 - (NSArray *) arrayOfStarTrekCharactersFromString:(NSString *)characterString {
-    /* WORK HERE */
-    return @[];
+        return [characterString componentsSeparatedByString:@";"];
 }
 
 - (NSString *) stringOfStarTrekCharactersFromArray:(NSArray *)characterArray {
-    /* WORK HERE */
-    return @"";
+    return [characterArray componentsJoinedByString:@";"];
 }
 
 - (NSArray *) alphabeticallySortedStarTrekCharactersFromArray:(NSArray *)characterArray {
-    /* WORK HERE */
-    return @[];
+    NSSortDescriptor *sortAscending = [[NSSortDescriptor alloc] initWithKey:nil ascending:YES];
+    NSMutableArray *tempArr = [characterArray mutableCopy];
+    [tempArr sortUsingDescriptors:@[sortAscending]];
+    return [tempArr copy]; // NOTE: As Jerry about best practice about returning NSArray From NSMutable Array- since NSMutableArray subclass NSArray
 }
 
 - (BOOL) characterArrayContainsWorf:(NSArray *)characterArray {
-    /* WORK HERE */
-    return NO;
+    NSMutableArray *tempArray = [characterArray mutableCopy];
+    NSPredicate *isWorfContainedInArray = [NSPredicate predicateWithFormat:@"SELF CONTAINS 'Worf'"];
+    [tempArray filterUsingPredicate: isWorfContainedInArray];
+    return [tempArray count] >= 1;
 }
 
 @end
