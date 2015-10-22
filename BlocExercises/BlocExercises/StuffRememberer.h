@@ -9,7 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface StuffRememberer : NSObject
-
+@property (nonatomic, strong) NSMutableArray *arrayToRemember;
+@property (nonatomic, copy) NSMutableArray *arrayToCopy;
+@property (assign) CGFloat floatToRemember;
+//NOTE: JERRY QUESTION: nonatomic is necessary also with primitive types?
 /*
  
  In this class, there are three pairs of methods.
@@ -18,11 +21,11 @@
  
  In the second method, you should provide the appropriate response:
  
-  1. In `arrayYouShouldRemember`, return the array provided in `rememberThisArrayForLater:`.
+ 1. In `arrayYouShouldRemember`, return the array provided in `rememberThisArrayForLater:`.
  
-  2. In `arrayYouShouldCopy`, return a copy of the array provided in `copyThisArrayForLater:`.
+ 2. In `arrayYouShouldCopy`, return a copy of the array provided in `copyThisArrayForLater:`.
  
-  3. In `floatYouShouldRemember`, return the float value provided in `rememberThisFloatForLater:`.
+ 3. In `floatYouShouldRemember`, return the float value provided in `rememberThisFloatForLater:`.
  
  */
 
